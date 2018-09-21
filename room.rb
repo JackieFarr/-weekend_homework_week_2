@@ -24,6 +24,10 @@ class Room
     @songs << song
   end
 
+  def detele_song(song)
+    @songs.delete(song)
+  end
+
   #check how many guests
   #compare guest numbers to capacity of room
   #allow or disallow
@@ -33,6 +37,14 @@ class Room
     else
       return "Room is not available!"
     end
+  end
+
+  def check_fave_song(guest, room)
+      if guest.favourite_song == room.songs
+        return "WooHoo!"
+      else
+        return "Sorry, this song isn't available!"
+      end
   end
 
 

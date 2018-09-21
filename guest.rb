@@ -17,6 +17,9 @@ class Guest
     end
   end
 
+  def cheer
+    return "WooHoo!"
+  end
 
 
 end

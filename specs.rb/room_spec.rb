@@ -1,5 +1,6 @@
 require("minitest/autorun")
 require("minitest/rg")
+require("pry")
 require_relative("../room.rb")
 require_relative("../guest.rb")
 require_relative("../song.rb")
@@ -10,11 +11,14 @@ class TestRoom < MiniTest::Test
     @room1 = Room.new("Disney", 5, 50, 0)
     @room2 = Room.new("Pop", 10, 70, 0)
     @room3 = Room.new("Rock", 15, 80, 0)
+    @room4 = Room.new("Girl Band", 8, 60, 0, 3, "Spice up your life")
 
     @guest1 = Guest.new("Cady", 18, 50, "Africa")
     @guest2 = Guest.new("Regina", 19, 100, "You're so vain")
     @guest3 = Guest.new("Gretchen", 19, 75, "Shake if off")
     @guest4 = Guest.new("Karen", 20, 60, "Spice up your life")
+
+
 
     @song1 = Song.new("Circle of Life")
     @song2 = Song.new("Bring it all Back")
@@ -53,6 +57,10 @@ class TestRoom < MiniTest::Test
 
   def test_room_has_capacity_for_guests
     assert_equal("You can sing!", @room1.check_capacity(@room1, 5))
+  end
+
+  def test_check_guest_fave_song_is_on_playlist
+    assert_equal("WooHoo!", @room4.check_fave_song(@guest4, @room4))
   end
 
 

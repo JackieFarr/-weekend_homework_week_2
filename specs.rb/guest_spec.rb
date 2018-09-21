@@ -2,6 +2,7 @@ require("minitest/autorun")
 require("minitest/rg")
 require_relative("../guest.rb")
 require_relative("../room.rb")
+require_relative("../song.rb")
 
 class TestGuest < MiniTest::Test
 
@@ -31,7 +32,6 @@ class TestGuest < MiniTest::Test
   def test_guest_favourite_song
     assert_equal("Africa", @guest1.favourite_song)
   end
-
 
   def test_guest_pays_room
     assert_equal("Sorry, you don't have enough money", @guest3.pay_room(@guest3.wallet, @room3.price))
