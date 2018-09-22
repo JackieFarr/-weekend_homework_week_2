@@ -18,8 +18,6 @@ class TestRoom < MiniTest::Test
     @guest3 = Guest.new("Gretchen", 19, 75, "Shake if off")
     @guest4 = Guest.new("Karen", 20, 60, "Spice up your life")
 
-
-
     @song1 = Song.new("Circle of Life")
     @song2 = Song.new("Bring it all Back")
     @song3 = Song.new("Sweet Child of Mine")
@@ -61,6 +59,11 @@ class TestRoom < MiniTest::Test
 
   def test_check_guest_fave_song_is_on_playlist
     assert_equal("WooHoo!", @room4.check_fave_song(@guest4, @room4))
+  end
+
+  def test_room_till_inceases
+    #room1 till should increase from 0 to 50 when used
+    assert_equal(50, @room1.till_increases(@guest1, @room1))
   end
 
 

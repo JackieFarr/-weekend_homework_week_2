@@ -9,12 +9,16 @@ class Guest
     @favourite_song = favourite_song
   end
 
-  def pay_room(guest, room)
+  def afford_room(guest, room)
     if guest >= room
       return "You can afford to sing!"
     else
       return "Sorry, you don't have enough money"
     end
+  end
+
+  def pay_room(guest, room)
+    guest - room
   end
 
   def cheer

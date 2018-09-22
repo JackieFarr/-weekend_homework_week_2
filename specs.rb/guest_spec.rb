@@ -33,8 +33,12 @@ class TestGuest < MiniTest::Test
     assert_equal("Africa", @guest1.favourite_song)
   end
 
+  def test_guest_can_afford_room
+    assert_equal("Sorry, you don't have enough money", @guest3.afford_room(@guest3.wallet, @room3.price))
+  end
+
   def test_guest_pays_room
-    assert_equal("Sorry, you don't have enough money", @guest3.pay_room(@guest3.wallet, @room3.price))
+    assert_equal(50, @guest2.pay_room(@guest2.wallet, @room1.price))
   end
 
 
