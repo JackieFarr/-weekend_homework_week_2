@@ -61,9 +61,14 @@ class TestRoom < MiniTest::Test
     assert_equal("WooHoo!", @room4.check_fave_song(@guest4, @room4))
   end
 
-  def test_room_till_inceases
-    #room1 till should increase from 0 to 50 when used
-    assert_equal(50, @room1.till_increases(@guest1, @room1))
+  def test_room_till_payment__true
+    #@room1 till should increase from 0 to 50
+    assert_equal(50, @room1.till_payment(@guest1, @room1))
+  end
+
+  def test_room_till_payment__false
+    #@room1 till should increase from 0 to 50
+    assert_equal("No funds available", @room2.till_payment(@guest1, @room2))
   end
 
 

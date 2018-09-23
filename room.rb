@@ -13,17 +13,17 @@ class Room
   end
 
   def add_guest(guest)
-    @guests << guest
+    @guests.push(guest)
     @capacity += 1
   end
 
   def remove_guest(guest)
-    @guests.pop
+    @guests.delete(guest)
     @capacity -= 1
   end
 
   def add_song(song)
-    @songs << song
+    @songs.push(song)
   end
 
   def detele_song(song)
@@ -48,12 +48,13 @@ class Room
         return "Sorry, this song isn't available!"
       end
   end
-  #
-  def till_increases(guest, room)
+
+  def till_payment(guest, room)
     if
       guest.wallet >= room.price
       room.till + room.price
-     # guest.wallet -= payment
+    else
+      return "No funds available"
     end
   end
 
